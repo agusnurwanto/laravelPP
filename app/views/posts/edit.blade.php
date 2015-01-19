@@ -1,0 +1,1 @@
+/opt/lampp/htdocs/masfikri/laravelPP2/app/views/posts/edit.blade.php
