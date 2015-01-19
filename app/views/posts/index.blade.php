@@ -8,14 +8,16 @@
         </ul>
         <hr>
     @endif
-    {{ Form::open(['route'=>'posts.create']) }}
+    {{ Form::open(['route'=>'posts.store']) }}
         <div>
             {{ Form::label('Title') }}
             {{ Form::text('title') }}
+            {{ $errors->first('title') }}
         </div>
         <div>
             {{ Form::label('Content') }}
             {{ Form::textarea('content') }}
+            {{ $errors->first('content') }}
         </div>
         <div>{{ Form::submit('Create Post') }}</div>
     {{ Form::close() }}

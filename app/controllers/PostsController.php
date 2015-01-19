@@ -35,7 +35,21 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// baca input
+		$input = Input::only('title', 'content');
+
+		// validasi input
+		$v = Validator::make($input, Posts::$postRule);
+        if ( $v->fails() ) return Redirect::back()->withErrors($v);
+
+        // save to db
+        $post = new Posts;
+        $post->title = $input['title'];
+        $post->content = $input['content'];
+        $post->author = Auth::user()->username;
+        $post->save();
+
+        return Redirect::route('home');
 	}
 
 	/**

@@ -5,7 +5,8 @@ class PageController extends BaseController {
 
     public function getIndex()
     {
-        $this->layout->content = View::make('blog.index');
+        $data['post'] = Posts::all();
+        $this->layout->content = View::make('blog.index', $data);
     }
 
     public function getAbout(){
