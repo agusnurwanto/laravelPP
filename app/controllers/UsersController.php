@@ -85,14 +85,24 @@ class UsersController extends \BaseController {
 		//
 	}
 
-
     public function getLogin(){
+    	if (Auth::check())
+			return Redirect::route('dashboard');
+
+        $this->layout->content = View::make('blog.login');
+    }
+
+    public function getLogout(){
+    	if (Auth::check())
+			Auth::logout();
+
         $this->layout->content = View::make('blog.login');
     }
 
     public function postLogin(){
         // Baca input
-        $input = Input::all();
+        // $input = Input::all();
+        $input = Input::only('email', 'password');
 
         // Validasi Input User
         $v = Validator::make($input, User::$loginRule);

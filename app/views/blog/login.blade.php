@@ -16,6 +16,7 @@
         <div>
             {{ Form::label('password') }}
             {{ Form::password('password') }}
+            {{ $errors->first('password') }}
         </div>
         <div>{{ Form::submit('Login') }}</div>
     {{ Form::close() }}

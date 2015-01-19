@@ -22,10 +22,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'latihan',
+			'host'      => '127.0.0.1',
+			'database'  => 'laravelPP',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => '12345',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

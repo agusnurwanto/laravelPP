@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>
             @section('title')
-            Latihan Membuat Blog
+            {{ $title }}
             @show
         </title>
         @section('css')
@@ -19,7 +19,12 @@
                     <li><a href="{{ URL::route('home') }}">Home</a></li>
                     <li><a href="{{ URL::route('about') }}">About</a></li>
                     <li><a href="{{ URL::route('categories') }}">Categories</a></li>
-                    <li><a href="{{ URL::route('login.get') }}">Login</a></li>
+                    @if (Auth::check())
+                        <li><a href="{{ URL::route('dashboard') }}">Dashboard</a></li>
+                        <li><a href="{{ URL::route('logout.get') }}">{{ $username }} Logout</a></li>
+                    @else
+                        <li><a href="{{ URL::route('login.get') }}">Login</a></li>
+                    @endif
                 </ul>
             </nav>
         </header>

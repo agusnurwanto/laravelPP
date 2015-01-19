@@ -9,7 +9,7 @@ form label {
     display: block;
     margin-bottom: 7px;
 }
-form input:not([type=submit]) {
+form input:not([type=submit]), textarea {
     width: 100%;
     border: 1px solid #eee;
     padding: 5px 7px;

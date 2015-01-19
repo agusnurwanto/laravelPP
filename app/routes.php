@@ -16,7 +16,10 @@ Route::get('about', ['as'=>'about','uses'=>'PageController@getAbout']);
 Route::get('categories', ['as'=>'categories','uses'=>'PageController@getCategories']);
 Route::get('login', ['as'=>'login.get','uses'=>'UsersController@getLogin']);
 Route::post('login', ['as'=>'login.post','uses'=>'UsersController@postLogin']);
-Route::get('dashboard', function(){
-    return 'Ini Dashboard';
-});
+Route::get('logout', ['as'=>'logout.get','uses'=>'UsersController@getLogout']);
+Route::get('dashboard', ['as'=>'dashboard','uses'=>'AdminController@getIndex']);
 Route::resource('users','UsersController');
+Route::resource('posts','PostsController');
+
+View::share('username', Auth::check() ? Auth::user()->username : '');
+View::share('title', 'Latihan Membuat Blog');
